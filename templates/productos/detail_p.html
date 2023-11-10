@@ -1,0 +1,57 @@
+{% extends 'Main.html'%}
+
+
+    
+
+
+
+{% block content %}
+
+<main class="flex-shrink-0">
+    {% for m in productos %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 order-md-1">
+                <!--Carrusel-->
+                <div id="carouselImages" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!--Imagenes-->
+                        <div class="carousel-item active">
+                            <img src="{{ m.detail_image.url }}" class="d-block w-100">
+                        </div>
+
+                        
+                        
+                    </div>
+
+                   
+                </div>
+            </div>
+            
+            <div style="background-color: white;" class="col-md-7 order-md-3">
+              <h2>{{m.nombre}}</h2>
+              <input type="hidden" name="token" value="026a8089ff9ce1c296464138aad4080fe96bd25e">
+              <p><del>$ {{m.precio}}</del></p>
+              <h2>$ {{m.precio}} <small class=" text-success"> Con el 10% de descuento</small></h2>
+              <p  class="lead"> stock : {{m.cantidad}}</p>
+              <p  class="lead">{{m.descripcion}}</p>
+          
+
+                <div class="col-3 my-3">
+                    <input class="form-control" id="cantidad" name="cantidad" type="number" min="1" max="10" value="1">
+                </div>
+
+                <div class="d-grid gap-3 col-7">
+                    <button class="btn btn-primary" type="button">Comprar ahora</button>
+                    <button class="btn btn-outline-primary" type="button" onclick="addProducto(1, cantidad.value, '026a8089ff9ce1c296464138aad4080fe96bd25e')">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+</main>
+{% endblock %}
+
+
+

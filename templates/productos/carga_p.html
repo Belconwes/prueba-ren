@@ -1,0 +1,36 @@
+{% extends 'Main.html' %}
+
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<html>
+
+<body>
+    <h1 style="background-color: black;">
+        <strong>
+            AGREGAR  ITEM 
+        </strong>
+    </h1>
+    <main class="container">
+        <div class="row">
+            <h1> {{error}} </h1>
+            <form action="" enctype="multipart/form-data" method="POST" style="background-color: rgba(42, 218, 100, 0.856);">
+                {% csrf_token %}
+                {{form|crispy}}
+                <button  class="btn btn-primary">CARGAR</button>
+                <a class="btn btn-outline-dark" href="/">&#x2190;CANCELAR</a>
+            </form>
+           
+
+        </div>
+
+    </main>
+    
+</body>
+
+
+</html>
+
+
+{% endblock %}

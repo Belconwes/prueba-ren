@@ -1,0 +1,7 @@
+crispy_bootstrap5
+Django
+django-crispy-forms
+Pillow
+psycopg2
+python-decouple
+#Pip requeridos
